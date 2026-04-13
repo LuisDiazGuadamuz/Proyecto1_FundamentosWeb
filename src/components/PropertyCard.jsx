@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { resolveAssetUrl } from '../utils/assetUrl'
 import { formatCurrency } from '../utils/format'
 
 function PropertyCard({ property }) {
@@ -7,7 +6,7 @@ function PropertyCard({ property }) {
     <article className="group overflow-hidden rounded-2xl border border-samara-stone/70 bg-white shadow-card transition hover:-translate-y-1">
       <div className="overflow-hidden">
         <img
-          src={resolveAssetUrl(property.images[0])}
+          src={property.images[0]}
           alt={`Imagen de ${property.name}`}
           className="h-52 w-full object-cover transition duration-300 group-hover:scale-105"
           loading="lazy"
