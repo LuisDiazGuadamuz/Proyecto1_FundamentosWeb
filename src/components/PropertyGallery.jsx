@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { resolveAssetUrl } from '../utils/assetUrl'
 
 function PropertyGallery({ images, title }) {
   const [activeImage, setActiveImage] = useState(images[0])
@@ -6,7 +7,11 @@ function PropertyGallery({ images, title }) {
   return (
     <section className="space-y-4">
       <div className="overflow-hidden rounded-2xl border border-samara-stone/70">
-        <img src={activeImage} alt={`Imagen principal de ${title}`} className="h-80 w-full object-cover sm:h-[420px]" />
+        <img
+          src={resolveAssetUrl(activeImage)}
+          alt={`Imagen principal de ${title}`}
+          className="h-80 w-full object-cover sm:h-[420px]"
+        />
       </div>
 
       <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
@@ -19,7 +24,7 @@ function PropertyGallery({ images, title }) {
               activeImage === image ? 'border-samara-gold' : 'border-samara-stone/70'
             }`}
           >
-            <img src={image} alt={`Miniatura de ${title}`} className="h-20 w-full object-cover" />
+            <img src={resolveAssetUrl(image)} alt={`Miniatura de ${title}`} className="h-20 w-full object-cover" />
           </button>
         ))}
       </div>

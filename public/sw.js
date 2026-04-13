@@ -1,4 +1,4 @@
-const VERSION = 'v1'
+const VERSION = 'v2'
 const STATIC_CACHE = `samara-static-${VERSION}`
 const API_CACHE = `samara-api-${VERSION}`
 const BASE_PATH = new URL(self.location.href).pathname.replace(/sw\.js$/, '')
