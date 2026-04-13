@@ -7,9 +7,11 @@
       "location": "Escazu",
       "description": "Residencia de lujo con acabados premium, jardin privado y acceso a servicios de alto nivel.",
       "images": [
-        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"
+        "/images/properties/casaarboles/Frente%20de%20casa.jpg",
+        "/images/properties/casaarboles/cocina.jpg",
+        "/images/properties/casaarboles/Habitacion.jpg",
+        "/images/properties/casaarboles/Habitacion%202.jpg",
+        "/images/properties/casaarboles/Parqueo.jpg"
       ],
       "beds": 4,
       "baths": 3,
@@ -23,9 +25,12 @@
       "location": "Santa Ana",
       "description": "Proyecto contemporaneo con iluminacion natural, cocina integrada y terraza panoramica.",
       "images": [
-        "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80"
+        "/images/properties/casaencanto/Frente%20de%20casa.jpg",
+        "/images/properties/casaencanto/Cocina.jpg",
+        "/images/properties/casaencanto/Dormitorio.jpg",
+        "/images/properties/casaencanto/Ducha.jpg",
+        "/images/properties/casaencanto/Sanitario.jpg",
+        "/images/properties/casaencanto/Segundo%20piso.jpg"
       ],
       "beds": 5,
       "baths": 4,
@@ -39,9 +44,12 @@
       "location": "Curridabat",
       "description": "Apartamento elegante en torre de alta plusvalia con amenidades de primer nivel y seguridad 24/7.",
       "images": [
-        "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80"
+        "/images/properties/casaflores/Frente%20de%20casa.jpeg",
+        "/images/properties/casaflores/Cocina.jpeg",
+        "/images/properties/casaflores/Habitacion.jpeg",
+        "/images/properties/casaflores/Sala%20de%20estar.jpeg",
+        "/images/properties/casaflores/Sanitario.jpeg",
+        "/images/properties/casaflores/Terrasa.jpeg"
       ],
       "beds": 3,
       "baths": 2,
@@ -55,9 +63,11 @@
       "location": "Mora",
       "description": "Propiedad exclusiva rodeada de naturaleza, ideal para inversion patrimonial de largo plazo.",
       "images": [
-        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80"
+        "/images/properties/casafrancesca/Piscina.jpg",
+        "/images/properties/casafrancesca/Cocina.jpg",
+        "/images/properties/casafrancesca/Habitacion.jpg",
+        "/images/properties/casafrancesca/Sala%20de%20estar.jpg",
+        "/images/properties/casafrancesca/Ba%C3%B1o.jpg"
       ],
       "beds": 6,
       "baths": 5,
@@ -71,9 +81,11 @@
       "location": "Heredia",
       "description": "Condominio moderno para estilo de vida urbano, con excelente conectividad y diseno funcional.",
       "images": [
-        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80"
+        "/images/properties/casamarelie/Casa%20frete%20de%20casa.jpg",
+        "/images/properties/casamarelie/Habitacion.jpg",
+        "/images/properties/casamarelie/Sala%20de%20estar.jpg",
+        "/images/properties/casamarelie/Piscina.jpg",
+        "/images/properties/casamarelie/Ba%C3%B1o.jpg"
       ],
       "beds": 2,
       "baths": 2,
@@ -87,9 +99,13 @@
       "location": "Alajuela",
       "description": "Casa familiar con amplios espacios sociales, acabados de lujo y vista panoramica.",
       "images": [
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1200&q=80"
+        "/images/properties/casapacifica/Piscina.jpg",
+        "/images/properties/casapacifica/Cocina.jpg",
+        "/images/properties/casapacifica/Sala.jpg",
+        "/images/properties/casapacifica/Corredor.jpg",
+        "/images/properties/casapacifica/Habitacion.jpg",
+        "/images/properties/casapacifica/Habitacion%202.jpg",
+        "/images/properties/casapacifica/Ba%C3%B1o.jpg"
       ],
       "beds": 4,
       "baths": 3,
