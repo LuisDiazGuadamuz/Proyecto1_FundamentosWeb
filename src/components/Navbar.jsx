@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import samaraLogo from '../assets/samara-logo.svg'
 
 const links = [
   { to: '/', label: 'Inicio' },
@@ -9,12 +10,20 @@ const links = [
 function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-samara-stone/60 bg-samara-ivory/95 backdrop-blur">
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <NavLink to="/" className="font-display text-2xl font-semibold tracking-tight text-samara-charcoal">
-          Samara <span className="text-samara-gold">Rentals</span>
+      <nav className="mx-auto flex w-full max-w-7xl flex-col items-center gap-3 px-4 py-3 sm:flex-row sm:justify-between sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
+        <NavLink
+          to="/"
+          className="flex shrink-0 items-center justify-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-samara-gold/70"
+          aria-label="Ir al inicio de Samara Real Estate"
+        >
+          <img
+            src={samaraLogo}
+            alt="Samara Real Estate"
+            className="h-14 w-auto max-w-[220px] object-contain sm:h-16 sm:max-w-[260px] lg:h-20 lg:max-w-[320px]"
+          />
         </NavLink>
 
-        <ul className="flex items-center gap-2 sm:gap-4">
+        <ul className="flex flex-wrap items-center justify-center gap-2 sm:justify-end sm:gap-4">
           {links.map((link) => (
             <li key={link.to}>
               <NavLink

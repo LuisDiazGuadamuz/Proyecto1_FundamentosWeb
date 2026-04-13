@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="samaraLogoTitle samaraLogoDesc">
+  <title id="samaraLogoTitle">Samara Real Estate</title>
+  <desc id="samaraLogoDesc">Logotipo de Samara Real Estate con una casa estilizada azul, texto dorado Samara y texto gris Real Estate.</desc>
+  <path fill="#2fa6c6" d="M174 391c93-95 209-167 337-232l209 143-27 42-192-132c-99 48-190 104-270 170-18 15-36 31-57 44Z"/>
+  <path fill="#2fa6c6" d="M215 497l18-170 25-17c112-76 226-141 343-202l116 86 56 41-23 34-49-31-100-73c-104 53-204 111-301 176l-9 104c85-33 179-46 286-46 37 0 75 2 115 5l-3 47c-39-3-75-5-111-5-110 0-207 15-297 48l-66 24Z"/>
+  <path fill="#2fa6c6" d="M154 533c62-39 124-67 188-84 65-17 135-26 212-26 43 0 90 3 141 10l-7 15c-47-4-91-6-131-6-157 0-287 33-403 108h-47c14-6 30-11 47-17Z"/>
+  <rect x="325" y="312" width="44" height="44" fill="#2fa6c6"/>
+  <rect x="379" y="312" width="44" height="44" fill="#2fa6c6"/>
+  <rect x="325" y="366" width="44" height="44" fill="#2fa6c6"/>
+  <rect x="379" y="366" width="44" height="44" fill="#2fa6c6"/>
+  <text x="490" y="420" fill="#f2ad24" font-family="Georgia, 'Times New Roman', serif" font-size="140" letter-spacing="2">SAMARA</text>
+  <text x="315" y="560" fill="#737373" font-family="Georgia, 'Times New Roman', serif" font-size="125" letter-spacing="2">REAL ESTATE</text>
+</svg>
