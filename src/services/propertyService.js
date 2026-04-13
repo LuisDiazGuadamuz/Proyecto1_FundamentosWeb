@@ -1,5 +1,30 @@
 const API_URL = `${import.meta.env.BASE_URL}properties.json`
 
+function resolveAssetUrl(imageUrl) {
+  if (!imageUrl || typeof imageUrl !== 'string') {
+    return imageUrl
+  }
+
+  // Keep external URLs unchanged.
+  if (/^https?:\/\//i.test(imageUrl)) {
+    return imageUrl
+  }
+
+  const normalizedPath = imageUrl.replace(/^\/+/, '')
+  return `${import.meta.env.BASE_URL}${normalizedPath}`
+}
+
+function normalizeProperty(property) {
+  if (!property || !Array.isArray(property.images)) {
+    return property
+  }
+
+  return {
+    ...property,
+    images: property.images.map(resolveAssetUrl),
+  }
+}
+
 export async function getProperties(signal) {
   try {
     const response = await fetch(API_URL, {
@@ -15,7 +40,8 @@ export async function getProperties(signal) {
     }
 
     const data = await response.json()
-    return data.properties ?? []
+    const properties = data.properties ?? []
+    return properties.map(normalizeProperty)
   } catch (error) {
     if (error.name === 'AbortError') {
       throw error
