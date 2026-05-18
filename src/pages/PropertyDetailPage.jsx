@@ -3,11 +3,13 @@ import { Link, useParams } from 'react-router-dom'
 import ErrorState from '../components/ErrorState'
 import LoadingState from '../components/LoadingState'
 import PropertyGallery from '../components/PropertyGallery'
+import { useFavorites } from '../hooks/useFavorites'
 import { getPropertyById } from '../services/propertyService'
 import { formatCurrency } from '../utils/format'
 
 function PropertyDetailPage() {
   const { id } = useParams()
+  const { isFavorite, toggleFavorite } = useFavorites()
   const [property, setProperty] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
@@ -58,6 +60,22 @@ function PropertyDetailPage() {
         <p className="mt-4 text-2xl font-semibold text-samara-gold">{formatCurrency(property.price)}</p>
         <p className="mt-5 text-samara-ash">{property.description}</p>
 
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <button
+            type="button"
+            onClick={() => toggleFavorite(property)}
+            className="rounded-full border border-samara-charcoal bg-white px-4 py-3 text-sm font-semibold text-samara-charcoal transition hover:bg-samara-charcoal hover:text-white"
+          >
+            {isFavorite(property.id) ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
+          </button>
+          <Link
+            to={`/contact?propertyName=${encodeURIComponent(property.name)}`}
+            className="inline-flex rounded-full bg-samara-charcoal px-6 py-3 text-sm font-bold text-white transition hover:bg-samara-gold hover:text-samara-charcoal"
+          >
+            Contactar asesor
+          </Link>
+        </div>
+
         <ul className="mt-6 grid grid-cols-2 gap-4 text-sm text-samara-ash">
           <li className="rounded-xl border border-samara-stone/70 bg-samara-ivory p-3">
             Habitaciones: <strong>{property.beds}</strong>
@@ -72,13 +90,6 @@ function PropertyDetailPage() {
             Tipo: <strong>{property.type}</strong>
           </li>
         </ul>
-
-        <Link
-          to="/contact"
-          className="mt-8 inline-flex rounded-full bg-samara-charcoal px-6 py-3 text-sm font-bold text-white transition hover:bg-samara-gold hover:text-samara-charcoal"
-        >
-          Contactar asesor
-        </Link>
       </aside>
     </div>
   )

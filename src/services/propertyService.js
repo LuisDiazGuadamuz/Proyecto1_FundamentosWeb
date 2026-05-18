@@ -1,11 +1,10 @@
-const API_URL = `${import.meta.env.BASE_URL}properties.json`
+const API_URL = import.meta.env.VITE_API_URL || '/graphql'
 
 function resolveAssetUrl(imageUrl) {
   if (!imageUrl || typeof imageUrl !== 'string') {
     return imageUrl
   }
 
-  // Keep external URLs unchanged.
   if (/^https?:\/\//i.test(imageUrl)) {
     return imageUrl
   }
@@ -25,39 +24,85 @@ function normalizeProperty(property) {
   }
 }
 
-export async function getProperties(signal) {
+async function executeGraphQL(query, variables = {}, signal) {
   try {
     const response = await fetch(API_URL, {
-      method: 'GET',
+      method: 'POST',
       headers: {
-        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ query, variables }),
       signal,
     })
 
     if (!response.ok) {
-      throw new Error('No se pudieron obtener las propiedades.')
+      throw new Error('No se pudo conectar con la API GraphQL.')
     }
 
-    const data = await response.json()
-    const properties = data.properties ?? []
-    return properties.map(normalizeProperty)
+    const result = await response.json()
+    if (result.errors?.length) {
+      throw new Error(result.errors[0].message)
+    }
+
+    return result.data
   } catch (error) {
     if (error.name === 'AbortError') {
       throw error
     }
-
     throw new Error(error.message || 'Error de red al consultar propiedades.')
   }
 }
 
-export async function getPropertyById(id, signal) {
-  const properties = await getProperties(signal)
-  const property = properties.find((item) => String(item.id) === String(id))
+export async function getProperties(signal) {
+  const query = `
+    query GetProperties {
+      properties {
+        id
+        name
+        description
+        location
+        price
+        images
+        beds
+        baths
+        area
+        type
+        features
+        createdAt
+      }
+    }
+  `
 
-  if (!property) {
+  const data = await executeGraphQL(query, {}, signal)
+  const properties = data.properties ?? []
+  return properties.map(normalizeProperty)
+}
+
+export async function getPropertyById(id, signal) {
+  const query = `
+    query GetProperty($id: ID!) {
+      property(id: $id) {
+        id
+        name
+        description
+        location
+        price
+        images
+        beds
+        baths
+        area
+        type
+        features
+        createdAt
+      }
+    }
+  `
+
+  const data = await executeGraphQL(query, { id }, signal)
+
+  if (!data.property) {
     throw new Error('Propiedad no encontrada.')
   }
 
-  return property
+  return normalizeProperty(data.property)
 }

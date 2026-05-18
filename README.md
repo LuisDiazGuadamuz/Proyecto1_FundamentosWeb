@@ -1,3 +1,9 @@
+# Desarrolladores
+Luis Felipe Diaz Guadamuz
+Andres Gonzales Salazar
+Daniela Sanchez Arias
+Steven Venegas Quiros
+
 # Samara Rentals - SPA Real Estate
 
 Aplicacion web SPA para venta de propiedades, construida con React + Vite + TailwindCSS.

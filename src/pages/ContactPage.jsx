@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { sanitizeFormData } from '../utils/sanitize'
+import { createInquiry } from '../services/graphqlService'
 
 const initialForm = {
   name: '',
@@ -8,9 +10,11 @@ const initialForm = {
 }
 
 function ContactPage() {
+  const [searchParams] = useSearchParams()
   const [formValues, setFormValues] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle')
+  const propertyName = searchParams.get('propertyName') || ''
 
   function validate(values) {
     const currentErrors = {}
@@ -39,7 +43,7 @@ function ContactPage() {
     }))
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
     setStatus('idle')
 
@@ -53,8 +57,17 @@ function ContactPage() {
       return
     }
 
-    setStatus('success')
-    setFormValues(initialForm)
+    try {
+      await createInquiry({
+        ...sanitizedValues,
+        propertyName: propertyName || null,
+      })
+      setStatus('success')
+      setFormValues(initialForm)
+    } catch (submissionError) {
+      setStatus('error')
+      setErrors({ submit: submissionError.message })
+    }
   }
 
   return (
@@ -65,6 +78,12 @@ function ContactPage() {
       </header>
 
       <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+        {propertyName ? (
+          <div className="rounded-2xl border border-samara-stone/70 bg-samara-ivory p-4 text-sm text-samara-charcoal">
+            Estoy interesado en la propiedad: <strong>{propertyName}</strong>
+          </div>
+        ) : null}
+
         <label className="block space-y-2">
           <span className="text-sm font-semibold text-samara-ash">Nombre</span>
           <input
@@ -117,7 +136,11 @@ function ContactPage() {
         </p>
       ) : null}
 
-      {status === 'error' ? (
+      {errors.submit ? (
+        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {errors.submit}
+        </p>
+      ) : status === 'error' ? (
         <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           Revisa los campos obligatorios antes de enviar.
         </p>

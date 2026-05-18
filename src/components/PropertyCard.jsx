@@ -1,9 +1,20 @@
 import { Link } from 'react-router-dom'
 import { formatCurrency } from '../utils/format'
+import { useFavorites } from '../hooks/useFavorites'
 
 function PropertyCard({ property }) {
+  const { isFavorite, toggleFavorite } = useFavorites()
+  const favorite = isFavorite(property.id)
+
   return (
-    <article className="group overflow-hidden rounded-2xl border border-samara-stone/70 bg-white shadow-card transition hover:-translate-y-1">
+    <article className="group relative overflow-hidden rounded-2xl border border-samara-stone/70 bg-white shadow-card transition hover:-translate-y-1">
+      <button
+        type="button"
+        onClick={() => toggleFavorite(property)}
+        className="absolute right-3 top-3 z-10 rounded-full border border-white bg-white/90 px-3 py-2 text-sm font-semibold text-samara-charcoal shadow-sm transition hover:bg-samara-gold hover:text-samara-charcoal"
+      >
+        {favorite ? '♥' : '♡'}
+      </button>
       <div className="overflow-hidden">
         <img
           src={property.images[0]}

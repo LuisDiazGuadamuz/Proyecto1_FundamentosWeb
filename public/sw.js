@@ -7,6 +7,8 @@ const OFFLINE_URL = `${BASE_PATH}offline.html`
 const STATIC_ASSETS = [
   `${BASE_PATH}`,
   `${BASE_PATH}index.html`,
+  `${BASE_PATH}favicon.svg`,
+  `${BASE_PATH}manifest.json`,
   OFFLINE_URL,
 ]
 
@@ -38,7 +40,7 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  if (url.pathname.endsWith('/properties.json')) {
+  if (url.pathname.endsWith('/properties.json') || url.pathname.endsWith('/graphql')) {
     event.respondWith(networkFirstForApi(request))
     return
   }
